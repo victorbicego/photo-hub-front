@@ -1,0 +1,41 @@
+<div class="card-container">
+  <div class="account-card">
+    <h2 class="card-title">Informações</h2>
+
+    <div class="account-info">
+      <div class="info">
+        <p>
+          <strong>Nome :&nbsp;</strong>
+          <span>{{ userDto?.firstName }} {{ userDto?.lastName }}</span>
+        </p>
+        <button (click)="openEditNameModal()" class="btn-primary">
+          <span class="material-icons">edit</span>
+        </button>
+      </div>
+
+      <div class="info">
+        <p>
+          <strong>Senha :&nbsp;</strong>
+          <span>******</span>
+        </p>
+        <button (click)="openUpdatePasswordModal()" class="btn-primary">
+          <span class="material-icons">edit</span>
+        </button>
+      </div>
+
+      <div class="info">
+        <p>
+          <strong>Email :&nbsp;</strong>
+          <span>{{ userDto?.username }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="delete-account">
+      <button (click)="openDeleteAccountModal()" class="btn-primary">
+        <span class="material-icons">delete</span>
+        <span class="btn-text">Deletar conta</span>
+      </button>
+    </div>
+  </div>
+</div>

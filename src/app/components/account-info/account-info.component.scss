@@ -1,0 +1,56 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .account-card {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card-title {
+      text-align: center;
+    }
+
+    .account-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 40px;
+
+        p {
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    .delete-account {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+
+      .btn-primary {
+        background: transparent;
+        border: 1px solid var(--accent-color);
+
+        &:hover {
+          background: var(--accent-hover);
+        }
+      }
+    }
+  }
+}

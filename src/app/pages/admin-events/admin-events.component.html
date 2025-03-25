@@ -1,0 +1,9 @@
+<app-admin-header></app-admin-header>
+
+<div class="events" *ngIf="!loadingHolderService.isLoading; else loading">
+  <p>manage works!</p>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
