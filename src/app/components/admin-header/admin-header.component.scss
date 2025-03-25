@@ -1,0 +1,28 @@
+.dashboard-header {
+  padding: 20px 120px;
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .user-name {
+      font-size: 2.5rem;
+    }
+
+    .brand-name {
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: "Pacifico", cursive;
+      font-style: normal;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 0.1px;
+    background-color: var(--border-color);
+    margin-top: 20px; //same value as the padding, to centralize the elements
+  }
+}

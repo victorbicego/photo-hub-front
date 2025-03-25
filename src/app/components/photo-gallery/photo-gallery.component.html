@@ -1,0 +1,87 @@
+<div>
+  <ng-container *ngIf="!matched">
+    <div
+      *ngIf="photos.length > 0; else noPhotos"
+      class="gallery"
+      [style.gridTemplateColumns]="'repeat(' + photosPerRow + ', 1fr)'"
+      [style.gridGap]="galleryGap"
+    >
+      <div *ngFor="let photo of photos; let i = index" class="photo-card">
+        <div class="photo-container" (click)="onPhotoClick(i)">
+          <img [src]="photo.photoUrl | photoUrl" alt="Photo" />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="matched">
+    <div
+      *ngIf="matchedPhotos.length > 0; else noPhotos"
+      class="gallery"
+      [style.gridTemplateColumns]="'repeat(' + photosPerRow + ', 1fr)'"
+      [style.gridGap]="galleryGap"
+    >
+      <div
+        *ngFor="let photo of matchedPhotos; let i = index"
+        class="photo-card"
+      >
+        <div class="photo-container" (click)="onPhotoClick(i)">
+          <img
+            [src]="photo.photoUrl | photoUrl"
+            alt="Photo"
+            (load)="onImageLoad($event, i)"
+          />
+          <div
+            *ngIf="showBoundingBox"
+            class="bounding-box"
+            [ngStyle]="getBoundingBoxStyle(photo, i)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noPhotos>
+    <div class="no-photos-message">Nenhuma Foto Disponivel</div>
+  </ng-template>
+
+  <div class="gallery-toolbar">
+    <div class="slider-container">
+      <button class="btn-primary" (click)="decreasePhotosPerRow()">
+        <span class="material-icons slider-icon large-icon">photo</span>
+      </button>
+      <input
+        type="range"
+        min="1"
+        max="16"
+        step="1"
+        [(ngModel)]="photosPerRow"
+      />
+      <button class="btn-primary" (click)="increasePhotosPerRow()">
+        <span class="material-icons slider-icon small-icon">photo</span>
+      </button>
+    </div>
+
+    <div class="matched-container" *ngIf="matched">
+      <button class="btn-primary" (click)="onUploadPhotoClick()">
+        <span class="material-icons">camera_front</span>
+      </button>
+      <button class="btn-primary" (click)="toggleBoundingBox()">
+        <span *ngIf="!showBoundingBox" class="material-icons">person_off</span>
+        <span *ngIf="showBoundingBox" class="material-icons">person</span>
+      </button>
+      <button class="btn-primary" (click)="onDownloadClick()">
+        <span class="material-icons">download</span>
+      </button>
+    </div>
+  </div>
+
+  <app-photo-preview
+    (close)="closePreview()"
+    [currentPhotoIndex]="currentPhotoIndex"
+    [photos]="matched ? matchedPhotos : photos"
+    *ngIf="
+      (matched ? matchedPhotos.length : photos.length) > 0 && showPhotoPreview
+    "
+  ></app-photo-preview>
+</div>

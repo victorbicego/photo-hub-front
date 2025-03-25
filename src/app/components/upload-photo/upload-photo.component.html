@@ -1,0 +1,33 @@
+<div class="modal-primary" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2 class="modal-title">{{ title }}</h2>
+      <button class="btn-primary" (click)="onClose()">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+
+    <div class="upload-input-group">
+      <label class="btn-primary file-input" for="fileInput">
+        {{ fileLabel }}
+      </label>
+      <input
+        id="fileInput"
+        type="file"
+        (change)="onFileSelected($event)"
+        hidden
+      />
+      <button
+        class="btn-primary match"
+        (click)="onUpload()"
+        [disabled]="!selectedFile"
+      >
+        <span class="material-icons">file_upload</span>
+      </button>
+    </div>
+
+    <div *ngIf="selectedFile" class="file-name">
+      {{ selectedFile.name }}
+    </div>
+  </div>
+</div>

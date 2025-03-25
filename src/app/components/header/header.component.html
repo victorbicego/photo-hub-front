@@ -1,0 +1,7 @@
+<header class="dashboard-header">
+  <div class="header-top" [ngClass]="{ centered: !event && !showNav }">
+    <app-header-event [event]="event" *ngIf="event"></app-header-event>
+    <app-header-nav *ngIf="showNav"></app-header-nav>
+    <h2 class="brand-name">Instagram</h2>
+  </div>
+</header>

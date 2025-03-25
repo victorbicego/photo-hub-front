@@ -1,0 +1,61 @@
+<app-admin-header></app-admin-header>
+
+<div class="account" *ngIf="!loadingHolderService.isLoading; else loading">
+  <div class="login-card">
+    <h2>Minha Conta</h2>
+    <div class="account-info">
+      <p>
+        <strong>Nome:</strong>
+        <span>{{ userDto?.firstName }} {{ userDto?.lastName }}</span>
+        <span class="edit-icon" (click)="openEditNameModal()">
+          <span class="material-icons">edit</span>
+        </span>
+      </p>
+      <p>
+        <strong>Senha:</strong>
+        <span> ****** </span>
+        <span class="edit-icon" (click)="openUpdatePasswordModal()">
+          <span class="material-icons">lock</span>
+        </span>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <span>{{ userDto?.username }}</span>
+      </p>
+      <p>
+        <strong>Papel:</strong>
+        <span>{{ userDto?.role }}</span>
+      </p>
+    </div>
+    <div class="delete-account">
+      <span class="edit-icon" (click)="openDeleteAccountModal()">
+        <span class="material-icons">delete</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<app-update-user-modal
+  [guestDto]="guestDto"
+  [hostDto]="hostDto"
+  (close)="closeEditNameModal()"
+  *ngIf="showEditNameModal"
+></app-update-user-modal>
+
+<app-update-password-modal
+  [guestDto]="guestDto"
+  [hostDto]="hostDto"
+  (close)="closeUpdatePasswordModal()"
+  *ngIf="showUpdatePasswordModal"
+></app-update-password-modal>
+
+<app-confirm-modal
+  *ngIf="showDeleteAccountModal"
+  (close)="closeDeleteAccountModal()"
+  (confirm)="confirmDeleteAccount()"
+  [title]="'Você tem certeza que deseja excluir sua conta?'"
+></app-confirm-modal>

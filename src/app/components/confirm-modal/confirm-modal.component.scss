@@ -1,0 +1,41 @@
+.modal-primary {
+  .modal-content {
+    .modal-body {
+      margin-bottom: 20px;
+
+      p {
+        font-size: 1rem;
+        color: var(--secondary-text-color);
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .btn-primary {
+        background: var(--accent-color);
+
+        &:hover {
+          background: var(--accent-hover);
+        }
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 1px solid var(--accent-color);
+
+        &:hover {
+          background: var(--accent-hover);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

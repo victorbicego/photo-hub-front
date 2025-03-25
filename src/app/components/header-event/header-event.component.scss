@@ -1,0 +1,38 @@
+.event-info {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+
+  .event-name {
+    font-size: 2.5rem;
+  }
+
+  .event-dates {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .date-chip {
+      display: flex;
+      align-items: center;
+      padding: 4px 6px;
+      font-size: 0.8rem;
+
+      .material-icons {
+        font-size: 1rem;
+        margin-right: 4px;
+        color: var(--accent-color);
+      }
+
+      small {
+        margin-left: 4px;
+        color: var(--secondary-text-color);
+      }
+    }
+
+    .separator {
+      font-size: 1rem;
+      color: var(--secondary-text-color);
+    }
+  }
+}

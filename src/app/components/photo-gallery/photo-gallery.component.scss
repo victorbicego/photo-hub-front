@@ -1,0 +1,147 @@
+.gallery {
+  display: grid;
+
+  .photo-card {
+    border-radius: 4px;
+    overflow: hidden;
+
+    .photo-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .bounding-box {
+      position: absolute;
+      border: 1.5px solid red;
+      pointer-events: none;
+    }
+
+    &:hover img {
+      cursor: pointer;
+      transform: scale(1.01);
+    }
+  }
+}
+
+.no-photos-message {
+  text-align: center;
+  color: var(--secondary-text-color);
+  padding: 20px;
+  font-size: 1.2rem;
+}
+
+.gallery-toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 300px;
+    background: var(--background-color);
+    padding: 5px;
+    border-radius: 4px;
+
+    input[type="range"] {
+      position: relative;
+      flex: 1;
+      -webkit-appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    /* Chrome, Safari e Opera */
+    input[type="range"]::-webkit-slider-thumb {
+      position: relative;
+      top: -4px;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Firefox */
+    input[type="range"]::-moz-range-thumb {
+      position: relative;
+      top: -4px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Estilização da trilha (track) para Chrome */
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      background: var(--secondary-background-color);
+      border-radius: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    /* Estilização da trilha para Firefox */
+    input[type="range"]::-moz-range-track {
+      height: 4px;
+      background: var(--secondary-background-color);
+      border-radius: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .slider-icon {
+      color: var(--accent-color);
+    }
+
+    .small-icon {
+      font-size: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .large-icon {
+      font-size: 2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .matched-container {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 6px;
+    background: var(--background-color);
+    border-radius: 4px;
+
+    .btn-primary {
+      color: var(--accent-color);
+    }
+  }
+}

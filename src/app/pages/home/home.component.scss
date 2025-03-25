@@ -1,0 +1,56 @@
+.home {
+  padding: 60px 120px 40px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  min-height: calc(100vh - 60px);
+
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 10px;
+      background: var(--accent-color);
+      color: var(--text-color);
+      margin-bottom: 10px;
+
+      &:hover {
+        background: var(--accent-hover);
+      }
+    }
+
+    .material-icons {
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .form-group {
+      input {
+        margin-bottom: 20px;
+      }
+    }
+
+    .forgot-text {
+      text-align: center;
+      color: var(--secondary-text-color);
+      font-size: 0.9rem;
+      margin-top: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

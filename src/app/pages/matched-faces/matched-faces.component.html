@@ -1,0 +1,21 @@
+<app-header [event]="event"></app-header>
+<div class="event">
+  <app-photo-gallery
+    *ngIf="!loadingHolderService.isLoading; else loading"
+    [matchedPhotos]="matchedPhotos"
+    [matched]="true"
+    (toggleUploadModal)="toggleUploadModal()"
+  ></app-photo-gallery>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<app-upload-photo
+  *ngIf="showUploadModal"
+  title="Encontre suas fotos!"
+  fileLabel="Escolha uma Selfie"
+  (close)="closeUploadModal()"
+  (upload)="onMatch($event)"
+></app-upload-photo>

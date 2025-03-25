@@ -1,0 +1,25 @@
+.modal-primary {
+  .modal-content {
+    .modal-body {
+      margin-bottom: 20px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: center;
+
+      button {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .btn-primary {
+        background: var(--accent-color);
+
+        &:hover {
+          background: var(--accent-hover);
+        }
+      }
+    }
+  }
+}
