@@ -1,7 +1,21 @@
 <app-admin-header></app-admin-header>
 
 <div class="events" *ngIf="!loadingHolderService.isLoading; else loading">
-  <p>manage works!</p>
+  <div class="event-list">
+    <div class="event-card" *ngFor="let event of eventList">
+      <h3>{{ event.name }}</h3>
+      <p class="event-dates">
+        {{ event.startDate | date : "dd/MM/yyyy hh:mm a" }}<br />
+        {{ event.endDate | date : "dd/MM/yyyy hh:mm a" }}
+      </p>
+      <div class="qr-code">
+        <img [src]="'data:image/png;base64,' + convertBase64(event.qrCode)" />
+      </div>
+      <button class="btn-primary" (click)="goToEvent(event)">
+        Ver detalhes
+      </button>
+    </div>
+  </div>
 </div>
 
 <ng-template #loading>

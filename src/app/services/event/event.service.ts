@@ -1,18 +1,17 @@
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {ApiResponse} from '../../interfaces/api-response';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {EventDto} from '../../interfaces/event-dto';
-import {PhotoDto} from '../../interfaces/photo-dto';
-import {PhotoRecognitionDto} from '../../interfaces/photo-recognition-dto';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { ApiResponse } from '../../interfaces/api-response';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { EventDto } from '../../interfaces/event-dto';
+import { PhotoDto } from '../../interfaces/photo-dto';
+import { PhotoRecognitionDto } from '../../interfaces/photo-recognition-dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventService {
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getEventPhotos(): Observable<ApiResponse<PhotoDto[]>> {
     return this.http.get<ApiResponse<PhotoDto[]>>(

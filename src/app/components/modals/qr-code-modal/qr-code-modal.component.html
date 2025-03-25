@@ -2,15 +2,18 @@
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <h2 class="modal-title">QR Code</h2>
-      <button class="btn-primary" (click)="onClose()">
+      <button class="btn-primary close-btn" (click)="onClose()">
         <span class="material-icons">close</span>
       </button>
     </div>
     <div class="modal-body">
-      <input type="text" [(ngModel)]="qrCode" placeholder="Insira o QR Code" />
-    </div>
-    <div class="modal-actions">
-      <button class="btn-primary" (click)="onSubmit()">Enviar</button>
+      <zxing-scanner
+        #scanner
+        [autostart]="true"
+        (scanSuccess)="handleQrCodeResult($event)"
+        [tryHarder]="true"
+      >
+      </zxing-scanner>
     </div>
   </div>
 </div>

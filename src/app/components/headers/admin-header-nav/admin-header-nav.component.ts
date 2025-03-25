@@ -20,7 +20,7 @@ export class AdminHeaderNavComponent {
   ) {}
 
   navigateToPhotos(): void {
-    this.router.navigate(['/event']);
+    this.router.navigate(['/manage/events']);
   }
 
   navigateToFaceMatch(): void {
