@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HostDto } from '../../interfaces/host-dto';
-import { GuestDto } from '../../interfaces/guest-dto';
-import { HostService } from '../../services/host/host.service';
-import { GuestService } from '../../services/guest/guest.service';
+import { HostDto } from '../../../interfaces/host-dto';
+import { GuestDto } from '../../../interfaces/guest-dto';
+import { HostService } from '../../../services/host/host.service';
+import { GuestService } from '../../../services/guest/guest.service';
 
 @Component({
   selector: 'app-update-user-modal',

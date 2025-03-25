@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { MatchedFaceHolderService } from './matched-face-holder.service';
+import {MatchedFaceHolderService} from './matched-face-holder.service';
 
 describe('MatchedFaceHolderService', () => {
   let service: MatchedFaceHolderService;

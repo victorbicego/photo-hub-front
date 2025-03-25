@@ -1,0 +1,45 @@
+.modal-primary {
+  .modal-content {
+
+    .modal-body {
+      .form-group {
+        input {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-around;
+      gap: 15px;
+
+      button {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .btn-primary {
+        background-color: var(--accent-color);
+
+        &:disabled {
+          background-color: var(--background-color);
+        }
+
+        &:hover {
+          background-color: var(--accent-hover);
+        }
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 1px solid var(--accent-color);
+
+        &:hover {
+          background: var(--accent-hover);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderComponent } from '../../components/headers/header/header.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
 import { PhotoGalleryComponent } from '../../components/photo-gallery/photo-gallery.component';
 import { CommonModule } from '@angular/common';
@@ -8,7 +8,7 @@ import { EventDto } from '../../interfaces/event-dto';
 import { EventService } from '../../services/event/event.service';
 import { Router } from '@angular/router';
 import { MatchedFaceHolderService } from '../../services/matched-face-holder/matched-face-holder.service';
-import { UploadPhotoComponent } from '../../components/upload-photo/upload-photo.component';
+import { UploadPhotoModalComponent } from '../../components/modals/upload-photo-modal/upload-photo-modal.component';
 import { LoadingHolderService } from '../../services/loading-holder/loading-holder.service';
 
 @Component({
@@ -18,7 +18,7 @@ import { LoadingHolderService } from '../../services/loading-holder/loading-hold
     LoadingComponent,
     PhotoGalleryComponent,
     CommonModule,
-    UploadPhotoComponent,
+    UploadPhotoModalComponent,
     LoadingComponent,
   ],
   templateUrl: './matched-faces.component.html',

@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ApiResponse } from '../../interfaces/api-response';
-import { GuestDto } from '../../interfaces/guest-dto';
-import { UpdateGuestDto } from '../../interfaces/update-guest-dto';
-import { PasswordDto } from '../../interfaces/password-dto';
+import {Injectable} from '@angular/core';
+import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {ApiResponse} from '../../interfaces/api-response';
+import {GuestDto} from '../../interfaces/guest-dto';
+import {UpdateGuestDto} from '../../interfaces/update-guest-dto';
+import {PasswordDto} from '../../interfaces/password-dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GuestService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getGuestInfo(): Observable<ApiResponse<GuestDto>> {
     return this.http.get<ApiResponse<GuestDto>>(
@@ -28,7 +29,7 @@ export class GuestService {
     return this.http.put<ApiResponse<GuestDto>>(
       `${environment.baseUrl}/guest`,
       updateGuestDto,
-      { withCredentials: true }
+      {withCredentials: true}
     );
   }
 
@@ -38,7 +39,7 @@ export class GuestService {
     return this.http.put<ApiResponse<GuestDto>>(
       `${environment.baseUrl}/guest/password`,
       passwordDto,
-      { withCredentials: true }
+      {withCredentials: true}
     );
   }
 

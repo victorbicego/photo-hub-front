@@ -1,4 +1,4 @@
-import { PhotoUrlPipe } from './photo-url.pipe';
+import {PhotoUrlPipe} from './photo-url.pipe';
 
 describe('PhotoUrlPipe', () => {
   it('create an instance', () => {

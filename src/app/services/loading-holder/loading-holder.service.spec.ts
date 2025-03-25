@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LoadingHolderService } from './loading-holder.service';
+import {LoadingHolderService} from './loading-holder.service';
 
 describe('LoadingHolderService', () => {
   let service: LoadingHolderService;

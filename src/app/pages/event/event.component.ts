@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderComponent } from '../../components/headers/header/header.component';
 import { EventService } from '../../services/event/event.service';
 import { Router } from '@angular/router';
 import { EventDto } from '../../interfaces/event-dto';

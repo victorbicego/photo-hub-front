@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
+import { HeaderComponent } from '../../components/headers/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventService } from '../../services/event/event.service';
-import { QrCodeModalComponent } from '../../components/qr-code-modal/qr-code-modal.component';
+import { QrCodeModalComponent } from '../../components/modals/qr-code-modal/qr-code-modal.component';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { CommonModule } from '@angular/common';
 import { GuestService } from '../../services/guest/guest.service';

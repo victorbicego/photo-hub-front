@@ -1,12 +1,13 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { environment } from '../../../environments/environment';
+import {Pipe, PipeTransform} from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {environment} from '../../../environments/environment';
 
 @Pipe({
   name: 'photoUrl',
 })
 export class PhotoUrlPipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   transform(photoPath: string): SafeUrl {
     let encodedPath: string;

@@ -4,10 +4,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-upload-photo',
   imports: [CommonModule],
-  templateUrl: './upload-photo.component.html',
-  styleUrl: './upload-photo.component.scss',
+  templateUrl: './upload-photo-modal.component.html',
+  styleUrl: './upload-photo-modal.component.scss',
 })
-export class UploadPhotoComponent {
+export class UploadPhotoModalComponent {
   @Input() title: string = 'Upload Photo';
   @Input() fileLabel: string = 'Escolha uma foto';
   @Output() close = new EventEmitter<void>();

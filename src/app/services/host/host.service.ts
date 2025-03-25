@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
-import { ApiResponse } from '../../interfaces/api-response';
-import { HostDto } from '../../interfaces/host-dto';
-import { UpdateHostDto } from '../../interfaces/update-host-dto';
-import { PasswordDto } from '../../interfaces/password-dto';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
+import {ApiResponse} from '../../interfaces/api-response';
+import {HostDto} from '../../interfaces/host-dto';
+import {UpdateHostDto} from '../../interfaces/update-host-dto';
+import {PasswordDto} from '../../interfaces/password-dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HostService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getHostInfo(): Observable<ApiResponse<HostDto>> {
     return this.http.get<ApiResponse<HostDto>>(`${environment.baseUrl}/host`, {
@@ -25,7 +26,7 @@ export class HostService {
     return this.http.put<ApiResponse<HostDto>>(
       `${environment.baseUrl}/host`,
       updateHostDto,
-      { withCredentials: true }
+      {withCredentials: true}
     );
   }
 
@@ -35,7 +36,7 @@ export class HostService {
     return this.http.put<ApiResponse<HostDto>>(
       `${environment.baseUrl}/host/password`,
       passwordDto,
-      { withCredentials: true }
+      {withCredentials: true}
     );
   }
 

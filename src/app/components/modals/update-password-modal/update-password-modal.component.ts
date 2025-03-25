@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HostService } from '../../services/host/host.service';
-import { GuestService } from '../../services/guest/guest.service';
-import { HostDto } from '../../interfaces/host-dto';
-import { GuestDto } from '../../interfaces/guest-dto';
+import { HostService } from '../../../services/host/host.service';
+import { GuestService } from '../../../services/guest/guest.service';
+import { HostDto } from '../../../interfaces/host-dto';
+import { GuestDto } from '../../../interfaces/guest-dto';
 
 @Component({
   selector: 'app-update-password-modal',

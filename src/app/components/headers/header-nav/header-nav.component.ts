@@ -1,15 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventService } from '../../services/event/event.service';
+import { EventService } from '../../../services/event/event.service';
 import { HttpResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
-import { AuthenticationService } from '../../services/authentication/authentication.service';
-import { UploadPhotoComponent } from '../upload-photo/upload-photo.component';
+import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { UploadPhotoModalComponent } from '../../modals/upload-photo-modal/upload-photo-modal.component';
 
 @Component({
   selector: 'app-header-nav',
-  imports: [CommonModule, ConfirmModalComponent, UploadPhotoComponent],
+  imports: [CommonModule, ConfirmModalComponent, UploadPhotoModalComponent],
   templateUrl: './header-nav.component.html',
   styleUrl: './header-nav.component.scss',
 })
