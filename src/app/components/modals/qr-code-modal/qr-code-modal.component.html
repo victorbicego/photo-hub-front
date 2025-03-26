@@ -8,9 +8,8 @@
     </div>
     <div class="modal-body">
       <zxing-scanner
-        #scanner
         [autostart]="true"
-        (scanSuccess)="handleQrCodeResult($event)"
+        (scanSuccess)="onSubmit($event)"
         [tryHarder]="true"
       >
       </zxing-scanner>

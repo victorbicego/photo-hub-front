@@ -1,22 +1,37 @@
 <app-admin-header></app-admin-header>
 
-<div class="events" *ngIf="!loadingHolderService.isLoading; else loading">
-  <div class="event-list">
-    <div class="event-card" *ngFor="let event of eventList">
-      <h3>{{ event.name }}</h3>
-      <p class="event-dates">
-        {{ event.startDate | date : "dd/MM/yyyy hh:mm a" }}<br />
-        {{ event.endDate | date : "dd/MM/yyyy hh:mm a" }}
-      </p>
-      <div class="qr-code">
-        <img [src]="'data:image/png;base64,' + convertBase64(event.qrCode)" />
+<div *ngIf="!loadingHolderService.isLoading; else loading" class="events">
+  <div *ngIf="eventList.length > 0; else noEvents">
+    <div class="event-list">
+      <div class="add-event">
+        <div class="add-event-content">
+          <p class="add-event-description">
+            Clique no botão abaixo para adicionar um novo evento.
+          </p>
+          <button class="btn-primary" (click)="addEvent()">
+            <span class="material-icons">add</span>
+            <span class="btn-text">Adicionar Evento</span>
+          </button>
+        </div>
       </div>
-      <button class="btn-primary" (click)="goToEvent(event)">
-        Ver detalhes
-      </button>
+
+      <app-event-card *ngFor="let event of eventList"
+                      [event]="event"
+      ></app-event-card>
     </div>
   </div>
 </div>
+
+<app-create-event-modal *ngIf="showCreateEventModal"
+                        (close)="closeCreateEventModal()"
+                        (eventCreated)="reloadEvents()"
+></app-create-event-modal>
+
+<ng-template #noEvents>
+  <div class="no-events-message">
+    Nenhum Evento Disponível.
+  </div>
+</ng-template>
 
 <ng-template #loading>
   <app-loading></app-loading>

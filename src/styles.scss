@@ -53,6 +53,22 @@ input[type="password"] {
   font-size: 1rem;
 }
 
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+ input[type="datetime-local"] {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid var(--secondary-text-color);
+   border-radius: 4px;
+   font-size: 1rem;
+ }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;

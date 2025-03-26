@@ -13,19 +13,11 @@ export class QrCodeModalComponent {
   @Output() close = new EventEmitter<void>();
   @Output() submit = new EventEmitter<string>();
 
-  qrCode: string = '';
-
-  onSubmit(): void {
-    this.submit.emit(this.qrCode);
-  }
-
   onClose(): void {
     this.close.emit();
   }
 
-  handleQrCodeResult(result: string): void {
-    this.qrCode = result;
-    console.log(this.qrCode);
-    this.onSubmit();
+  onSubmit(result: string): void {
+    this.submit.emit(result);
   }
 }

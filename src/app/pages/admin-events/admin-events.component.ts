@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminHeaderComponent } from '../../components/headers/admin-header/admin-header.component';
 import { LoadingComponent } from '../../components/loading/loading.component';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { LoadingHolderService } from '../../services/loading-holder/loading-holder.service';
 import { HostDto } from '../../interfaces/host-dto';
 import { GuestDto } from '../../interfaces/guest-dto';
@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 import { EventDto } from '../../interfaces/event-dto';
 import { GuestEventService } from '../../services/guest-event/guest-event.service';
 import { HostEventService } from '../../services/host-event/host-event.service';
+import {EventCardComponent} from '../../components/event-card/event-card.component';
+import {CreateEventModalComponent} from '../../components/modals/create-event-modal/create-event-modal.component';
 
 @Component({
   selector: 'app-admin-events',
-  imports: [AdminHeaderComponent, LoadingComponent, CommonModule],
+  imports: [AdminHeaderComponent, LoadingComponent, CommonModule, EventCardComponent, CreateEventModalComponent],
   templateUrl: './admin-events.component.html',
   styleUrl: './admin-events.component.scss',
 })
@@ -22,6 +24,8 @@ export class AdminEventsComponent {
   hostDto: HostDto | null = null;
   guestDto: GuestDto | null = null;
   eventList: EventDto[] = [];
+
+  showCreateEventModal = false;
 
   constructor(
     private hostService: HostService,
@@ -97,13 +101,16 @@ export class AdminEventsComponent {
     });
   }
 
-  goToEvent(event: EventDto): void {
-    this.router.navigate(['/admin/event', event.id]);
+  addEvent():void{
+    this.showCreateEventModal = true;
   }
 
-  convertBase64(qr: string): string {
-    // Se a string já estiver no formato padrão, retorne-a diretamente.
-    // Caso contrário, substitua '-' por '+' e '_' por '/'
-    return qr.replace(/-/g, '+').replace(/_/g, '/');
+  closeCreateEventModal():void{
+    this.showCreateEventModal = false;
+  }
+
+  reloadEvents(): void {
+    this.loadingHolderService.isLoading = true;
+    this.checkHostAndGuest();
   }
 }

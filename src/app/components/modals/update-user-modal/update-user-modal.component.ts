@@ -5,6 +5,7 @@ import { HostDto } from '../../../interfaces/host-dto';
 import { GuestDto } from '../../../interfaces/guest-dto';
 import { HostService } from '../../../services/host/host.service';
 import { GuestService } from '../../../services/guest/guest.service';
+import {LoadingHolderService} from '../../../services/loading-holder/loading-holder.service';
 
 @Component({
   selector: 'app-update-user-modal',
@@ -22,7 +23,8 @@ export class UpdateUserModalComponent {
 
   constructor(
     private hostService: HostService,
-    private guestService: GuestService
+    private guestService: GuestService,
+    private loadingHolderService: LoadingHolderService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class UpdateUserModalComponent {
 
   saveNameEdit(): void {
     if (this.hostDto) {
+      this.loadingHolderService.isLoading = true;
       this.hostService
         .updateHostInfo({
           firstName: this.editFirstName,
@@ -48,13 +51,16 @@ export class UpdateUserModalComponent {
         })
         .subscribe({
           next: (response) => {
+            this.loadingHolderService.isLoading = false;
             this.close.emit();
           },
           error: (error) => {
+            this.loadingHolderService.isLoading = false;
             console.error('Erro ao obter detalhes do evento', error);
           },
         });
     } else if (this.guestDto) {
+      this.loadingHolderService.isLoading = true;
       this.guestService
         .updateGuestInfo({
           firstName: this.editFirstName,
@@ -62,9 +68,11 @@ export class UpdateUserModalComponent {
         })
         .subscribe({
           next: (response) => {
+            this.loadingHolderService.isLoading = false;
             this.close.emit();
           },
           error: (error) => {
+            this.loadingHolderService.isLoading = false;
             console.error('Erro ao obter detalhes do evento', error);
           },
         });

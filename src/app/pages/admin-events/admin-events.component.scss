@@ -1,62 +1,47 @@
 .events {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-}
+  padding: 20px 120px 40px 120px;
 
-.event-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-}
+  .event-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
 
-.event-card {
-  background: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-    color: var(--text-color);
-  }
-
-  .event-dates {
-    font-size: 0.9rem;
-    color: var(--secondary-text-color);
-    margin-bottom: 10px;
-  }
-
-  .qr-code {
-    margin-bottom: 15px;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid var(--secondary-background-color);
+    .add-event{
+      background: var(--background-color);
+      border: 1px solid var(--border-color);
       border-radius: 4px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+
+      .add-event-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .add-event-description {
+          font-size: 0.9rem;
+          color: var(--secondary-text-color);
+        }
+
+        .btn-primary {
+          width: 100%;
+          border: 1px solid var(--accent-color);
+
+          &:hover {
+            background: var(--accent-hover);
+          }
+        }
+      }
     }
   }
+}
 
-  button {
-    width: 100%;
-    padding: 10px;
-    background: var(--accent-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-
-    &:hover {
-      background: var(--accent-hover);
-    }
-  }
+.no-events-message {
+  text-align: center;
+  color: var(--secondary-text-color);
+  padding: 20px;
+  font-size: 1.2rem;
 }
