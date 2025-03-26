@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { ApiResponse } from '../../interfaces/api-response';
 import { EventDto } from '../../interfaces/event-dto';
+import { PhotoDto } from '../../interfaces/photo-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -37,6 +38,15 @@ export class GuestEventService {
   getEventByIdForGuest(id: number): Observable<ApiResponse<EventDto>> {
     return this.http.get<ApiResponse<EventDto>>(
       `${environment.baseUrl}/guest/event/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  getEventPhotos(id: string): Observable<ApiResponse<PhotoDto[]>> {
+    return this.http.get<ApiResponse<PhotoDto[]>>(
+      `${environment.baseUrl}/guest/event/${id}/photos`,
       {
         withCredentials: true,
       }

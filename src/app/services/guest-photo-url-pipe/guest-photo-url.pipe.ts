@@ -3,9 +3,9 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
 
 @Pipe({
-  name: 'photoUrl',
+  name: 'guestPhotoUrl',
 })
-export class PhotoUrlPipe implements PipeTransform {
+export class GuestPhotoUrlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
 
   transform(photoPath: string): SafeUrl {
@@ -15,7 +15,7 @@ export class PhotoUrlPipe implements PipeTransform {
     } else {
       encodedPath = encodeURIComponent(photoPath);
     }
-    const url = `${environment.baseUrl}/event/photo?url=${encodedPath}`;
+    const url = `${environment.baseUrl}/guest/event/photo?url=${encodedPath}`;
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
 }

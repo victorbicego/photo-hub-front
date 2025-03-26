@@ -1,0 +1,13 @@
+<app-admin-header></app-admin-header>
+
+<div class="event-photos">
+  <app-admin-photo-gallery
+    *ngIf="!loadingHolderService.isLoading; else loading"
+    [photos]="photos"
+    [isHost]="isHost"
+  ></app-admin-photo-gallery>
+</div>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

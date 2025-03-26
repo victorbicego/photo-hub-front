@@ -5,6 +5,7 @@ import { ApiResponse } from '../../interfaces/api-response';
 import { Observable } from 'rxjs';
 import { EventDto } from '../../interfaces/event-dto';
 import { CreateEventDto } from '../../interfaces/create-event-dto';
+import { PhotoDto } from '../../interfaces/photo-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -57,6 +58,15 @@ export class HostEventService {
   deletePhoto(photoId: number): Observable<ApiResponse<void>> {
     return this.http.delete<ApiResponse<void>>(
       `${environment.baseUrl}/host/event/photo/${photoId}`,
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  getEventPhotos(id: string): Observable<ApiResponse<PhotoDto[]>> {
+    return this.http.get<ApiResponse<PhotoDto[]>>(
+      `${environment.baseUrl}/host/event/${id}/photos`,
       {
         withCredentials: true,
       }

@@ -3,18 +3,21 @@
   <div class="event-dates">
     <span class="date-chip">
       <i class="material-icons">event</i>
-      {{ event.startDate | date: "dd/MM/yyyy" }}
-      <small>{{ event.startDate | date: "hh:mm a" }}</small>
+      {{ event.startDate | date : "dd/MM/yyyy" }}
+      <small>{{ event.startDate | date : "hh:mm a" }}</small>
     </span>
     <span class="separator">–</span>
     <span class="date-chip">
       <i class="material-icons">event</i>
-      {{ event.endDate | date: "dd/MM/yyyy" }}
-      <small>{{ event.endDate | date: "hh:mm a" }}</small>
+      {{ event.endDate | date : "dd/MM/yyyy" }}
+      <small>{{ event.endDate | date : "hh:mm a" }}</small>
     </span>
   </div>
   <div class="qr-code">
-    <img alt="qr code" [src]="'data:image/png;base64,' + convertBase64(event.qrCode)" />
+    <img
+      alt="qr code"
+      [src]="'data:image/png;base64,' + convertBase64(event.qrCode)"
+    />
   </div>
   <div class="qr-actions">
     <button class="btn-primary" (click)="shareQrCodeByEmail(event)">
@@ -28,6 +31,6 @@
     </button>
   </div>
   <button class="btn-primary details" (click)="goToEvent(event)">
-    Ver detalhes
+    Gerenciar Fotos
   </button>
 </div>

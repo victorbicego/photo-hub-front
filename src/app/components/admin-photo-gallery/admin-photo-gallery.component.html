@@ -1,0 +1,64 @@
+<div>
+  <ng-container>
+    <div
+      *ngIf="photos.length > 0; else noPhotos"
+      class="gallery"
+      [style.gridTemplateColumns]="'repeat(' + photosPerRow + ', 1fr)'"
+      [style.gridGap]="galleryGap"
+    >
+      <div
+        class="photo-card"
+        *ngFor="let photo of photos; let i = index"
+        (click)="togglePhotoSelection(photo)"
+        [class.selected]="isPhotoSelected(photo)"
+      >
+        <div class="photo-container">
+          <img
+            *ngIf="isHost"
+            [src]="photo.photoUrl | hostPhotoUrl"
+            alt="Photo"
+          />
+          <img
+            *ngIf="!isHost"
+            [src]="photo.photoUrl | guestPhotoUrl"
+            alt="Photo"
+          />
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noPhotos>
+    <div class="no-photos-message">Nenhuma Foto Disponivel</div>
+  </ng-template>
+
+  <div class="gallery-toolbar">
+    <div class="slider-container">
+      <button class="btn-primary" (click)="decreasePhotosPerRow()">
+        <span class="material-icons slider-icon large-icon">photo</span>
+      </button>
+      <input
+        type="range"
+        min="1"
+        max="16"
+        step="1"
+        [(ngModel)]="photosPerRow"
+      />
+      <button class="btn-primary" (click)="increasePhotosPerRow()">
+        <span class="material-icons slider-icon small-icon">photo</span>
+      </button>
+    </div>
+
+    <div class="matched-container">
+      <button class="btn-primary" (click)="onDeletePhotoClick()">
+        <span class="material-icons">delete</span>
+      </button>
+      <button class="btn-primary" (click)="onUploadPhotoClick()">
+        <span class="material-icons">upload</span>
+      </button>
+      <button class="btn-primary" (click)="onDownloadClick()">
+        <span class="material-icons">download</span>
+      </button>
+    </div>
+  </div>
+</div>

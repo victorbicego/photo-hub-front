@@ -5,6 +5,7 @@ import { AdminManageComponent } from './pages/admin-manage/admin-manage.componen
 import { MatchedFacesComponent } from './pages/matched-faces/matched-faces.component';
 import { AdminAccountComponent } from './pages/admin-account/admin-account.component';
 import { AdminEventsComponent } from './pages/admin-events/admin-events.component';
+import { AdminSingleEventComponent } from './pages/admin-single-event/admin-single-event.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,4 +15,5 @@ export const routes: Routes = [
   { path: 'manage', component: AdminManageComponent },
   { path: 'manage/account', component: AdminAccountComponent },
   { path: 'manage/events', component: AdminEventsComponent },
+  { path: 'manage/event/:eventId', component: AdminSingleEventComponent },
 ];
