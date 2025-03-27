@@ -3,8 +3,8 @@
 <div class="event-photos">
   <app-admin-photo-gallery
     *ngIf="!loadingHolderService.isLoading; else loading"
-    [photos]="photos"
     [isHost]="isHost"
+    [photos]="photos"
   ></app-admin-photo-gallery>
 </div>
 

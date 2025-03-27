@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HostEventService} from '../../../services/host-event/host-event.service';
-import {LoadingHolderService} from '../../../services/loading-holder/loading-holder.service';
+import {LoadingHolderService} from '../../../services/holders/loading-holder/loading-holder.service';
 
 @Component({
   selector: 'app-create-event-modal',

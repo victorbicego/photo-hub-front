@@ -44,7 +44,7 @@ export class HeaderNavComponent {
     this.eventService.uploadPhoto(file).subscribe({
       next: (response) => {
         if (this.router.url === '/event') {
-          window.location.reload();
+          this.eventService.notifyPhotoUpdated();
         } else {
           this.router.navigate(['/event']);
         }
@@ -85,7 +85,7 @@ export class HeaderNavComponent {
   }
 
   navigateToManage(): void {
-    this.router.navigate(['/event/manage']);
+    this.router.navigate(['/admin/event']);
   }
 
   toggleLogoutModal(): void {

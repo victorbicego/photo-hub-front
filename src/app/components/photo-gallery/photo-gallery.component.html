@@ -3,7 +3,7 @@
     <div
       *ngIf="photos.length > 0; else noPhotos"
       class="gallery"
-      [style.gridTemplateColumns]="'repeat(' + photosPerRow + ', 1fr)'"
+      [style.gridTemplateColumns]="'repeat(' + this.itensPerRowHolderService.photosPerRow + ', 1fr)'"
       [style.gridGap]="galleryGap"
     >
       <div *ngFor="let photo of photos; let i = index" class="photo-card">
@@ -18,7 +18,7 @@
     <div
       *ngIf="matchedPhotos.length > 0; else noPhotos"
       class="gallery"
-      [style.gridTemplateColumns]="'repeat(' + photosPerRow + ', 1fr)'"
+      [style.gridTemplateColumns]="'repeat(' + this.itensPerRowHolderService.photosPerRow + ', 1fr)'"
       [style.gridGap]="galleryGap"
     >
       <div
@@ -55,7 +55,7 @@
         min="1"
         max="16"
         step="1"
-        [(ngModel)]="photosPerRow"
+        [(ngModel)]="this.itensPerRowHolderService.photosPerRow"
       />
       <button class="btn-primary" (click)="increasePhotosPerRow()">
         <span class="material-icons slider-icon small-icon">photo</span>

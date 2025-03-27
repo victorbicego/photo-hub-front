@@ -5,8 +5,8 @@ import { HttpResponse } from '@angular/common/http';
 import { EventService } from '../../services/event/event.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HostPhotoUrlPipe } from '../../services/host-photo-url-pipe/host-photo-url.pipe';
-import { GuestPhotoUrlPipe } from '../../services/guest-photo-url-pipe/guest-photo-url.pipe';
+import { HostPhotoUrlPipe } from '../../services/pipes/host-photo-url-pipe/host-photo-url.pipe';
+import { GuestPhotoUrlPipe } from '../../services/pipes/guest-photo-url-pipe/guest-photo-url.pipe';
 
 @Component({
   selector: 'app-admin-photo-gallery',

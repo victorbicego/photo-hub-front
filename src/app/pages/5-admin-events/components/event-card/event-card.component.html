@@ -1,0 +1,42 @@
+<div *ngIf="event" class="event-card">
+
+  <h3>{{ event.name }}</h3>
+
+  <div class="event-dates">
+    <span class="date-chip">
+      <i class="material-icons">event</i>
+      {{ event.startDate | date : "dd/MM/yyyy" }}
+      <small>{{ event.startDate | date : "hh:mm a" }}</small>
+    </span>
+    <span class="separator">–</span>
+    <span class="date-chip">
+      <i class="material-icons">event</i>
+      {{ event.endDate | date : "dd/MM/yyyy" }}
+      <small>{{ event.endDate | date : "hh:mm a" }}</small>
+    </span>
+  </div>
+
+  <div class="qr-code">
+    <img
+      alt="qr code"
+      [src]="'data:image/png;base64,' + convertBase64(event.qrCode)"
+    />
+  </div>
+
+  <div class="qr-actions">
+    <button class="btn-primary" (click)="shareQrCodeByEmail(event)">
+      <i class="material-icons">email</i>
+    </button>
+    <button class="btn-primary" (click)="shareQrCodeByWhatsapp(event)">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <button class="btn-primary" (click)="downloadQrCode(event)">
+      <i class="material-icons">file_download</i>
+    </button>
+  </div>
+
+  <button class="btn-primary manage-photos" (click)="goToEvent(event)">
+    Gerenciar Fotos
+  </button>
+
+</div>

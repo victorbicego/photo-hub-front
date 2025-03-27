@@ -1,0 +1,31 @@
+.add-event {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--standard-border-radius);
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  height: 100%;
+
+  .add-event-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .add-event-description {
+      font-size: 0.9rem;
+      color: var(--secondary-text-color);
+    }
+
+    .btn-primary {
+      width: 100%;
+      border: 1px solid var(--accent-color);
+
+      &:hover {
+        background: var(--accent-hover);
+      }
+    }
+  }
+}

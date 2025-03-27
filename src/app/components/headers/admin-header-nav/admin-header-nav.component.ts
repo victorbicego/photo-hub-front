@@ -20,7 +20,7 @@ export class AdminHeaderNavComponent {
   ) {}
 
   navigateToPhotos(): void {
-    this.router.navigate(['/manage/events']);
+    this.router.navigate(['/admin/events']);
   }
 
   navigateToFaceMatch(): void {
@@ -36,11 +36,11 @@ export class AdminHeaderNavComponent {
   }
 
   navigateToManage(): void {
-    this.router.navigate(['/event/manage']);
+    this.router.navigate(['/admin/manage']);
   }
 
   navigateToMyAccount(): void {
-    this.router.navigate(['/manage/account']);
+    this.router.navigate(['/admin/account']);
   }
 
   toggleLogoutModal(): void {

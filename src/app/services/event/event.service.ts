@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from '../../interfaces/api-response';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { EventDto } from '../../interfaces/event-dto';
 import { PhotoDto } from '../../interfaces/photo-dto';
@@ -11,6 +11,8 @@ import { PhotoRecognitionDto } from '../../interfaces/photo-recognition-dto';
   providedIn: 'root',
 })
 export class EventService {
+  photoUpdatedSubject = new Subject<void>();
+
   constructor(private http: HttpClient) {}
 
   getEventPhotos(): Observable<ApiResponse<PhotoDto[]>> {
@@ -75,5 +77,9 @@ export class EventService {
       observe: 'response',
       withCredentials: true,
     });
+  }
+
+  notifyPhotoUpdated(): void {
+    this.photoUpdatedSubject.next();
   }
 }

@@ -1,0 +1,13 @@
+<app-header [event]="event"></app-header>
+
+<ng-container  *ngIf="!loadingHolderService.isLoading; else loading">
+  <div class="event">
+    <app-photo-gallery
+      [photos]="photos"
+    ></app-photo-gallery>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>

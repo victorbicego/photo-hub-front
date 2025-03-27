@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminSingleEventComponent } from './admin-single-event.component';
+import {AdminSingleEventComponent} from './admin-single-event.component';
 
 describe('AdminSingleEventComponent', () => {
   let component: AdminSingleEventComponent;
@@ -10,7 +10,7 @@ describe('AdminSingleEventComponent', () => {
     await TestBed.configureTestingModule({
       imports: [AdminSingleEventComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AdminSingleEventComponent);
     component = fixture.componentInstance;

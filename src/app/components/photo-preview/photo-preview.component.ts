@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PhotoDto } from '../../interfaces/photo-dto';
-import { PhotoUrlPipe } from '../../services/photo-url-pipe/photo-url.pipe';
+import { PhotoUrlPipe } from '../../services/pipes/photo-url-pipe/photo-url.pipe';
 
 @Component({
   selector: 'app-photo-preview',

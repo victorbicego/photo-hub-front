@@ -5,10 +5,11 @@ import { ImageDimension } from '../../interfaces/image-dimension';
 import { EventService } from '../../services/event/event.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { PhotoUrlPipe } from '../../services/photo-url-pipe/photo-url.pipe';
+import { PhotoUrlPipe } from '../../services/pipes/photo-url-pipe/photo-url.pipe';
 import { PhotoPreviewComponent } from '../photo-preview/photo-preview.component';
-import { MatchedFaceHolderService } from '../../services/matched-face-holder/matched-face-holder.service';
+import { MatchedFaceHolderService } from '../../services/holders/matched-face-holder/matched-face-holder.service';
 import { HttpResponse } from '@angular/common/http';
+import {ItensPerRowHolderService} from '../../services/holders/itens-per-row-holder/itens-per-row-holder.service';
 
 @Component({
   selector: 'app-photo-gallery',
@@ -23,7 +24,6 @@ export class PhotoGalleryComponent {
 
   @Output() toggleUploadModal = new EventEmitter<void>();
 
-  photosPerRow: number = 4;
   showBoundingBox: boolean = false;
   showPhotoPreview: boolean = false;
   currentPhotoIndex: number = 0;
@@ -48,26 +48,26 @@ export class PhotoGalleryComponent {
       15: '14px',
       16: '14px',
     };
-    return gapMap[this.photosPerRow] || '20px';
+    return gapMap[this.itensPerRowHolderService.photosPerRow] || '20px';
   }
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, public itensPerRowHolderService:ItensPerRowHolderService) {}
 
   ngOnInit(): void {
     if (window.innerWidth < 768) {
-      this.photosPerRow = 1;
+      this.itensPerRowHolderService.photosPerRow = 1;
     }
   }
 
   increasePhotosPerRow(): void {
-    if (this.photosPerRow < 16) {
-      this.photosPerRow++;
+    if (this.itensPerRowHolderService.photosPerRow < 16) {
+      this.itensPerRowHolderService.photosPerRow++;
     }
   }
 
   decreasePhotosPerRow(): void {
-    if (this.photosPerRow > 1) {
-      this.photosPerRow--;
+    if (this.itensPerRowHolderService.photosPerRow > 1) {
+      this.itensPerRowHolderService.photosPerRow--;
     }
   }
 

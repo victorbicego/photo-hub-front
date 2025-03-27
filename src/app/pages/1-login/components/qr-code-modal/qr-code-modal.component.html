@@ -1,0 +1,12 @@
+<div (click)="onClose()" class="modal-primary">
+  <div (click)="$event.stopPropagation()" class="modal-content">
+    <div class="modal-body">
+      <zxing-scanner
+        (scanSuccess)="onSubmit($event)"
+        [autostart]="true"
+        [tryHarder]="true"
+      >
+      </zxing-scanner>
+    </div>
+  </div>
+</div>

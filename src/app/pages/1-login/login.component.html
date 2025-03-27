@@ -1,0 +1,21 @@
+<app-header [showNav]="false"></app-header>
+
+<ng-container *ngIf="!loadingHolderService.isLoading; else loading">
+  <div class="login">
+    <app-qr-code-login-card (emitToggle)="toggleQrCodeModal()" class="login-card"></app-qr-code-login-card>
+    <app-credentials-login-card (emitToggle)="toggleResetPasswordModal()"
+                                class="login-card"></app-credentials-login-card>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
+
+<app-qr-code-modal
+  (emitClose)="closeQrCodeModal()"
+  *ngIf="showQrCodeModal"
+></app-qr-code-modal>
+
+<app-reset-password-modal (emitClose)="closeResetPasswordModal()"
+                          *ngIf="showResetPasswordModal"></app-reset-password-modal>
